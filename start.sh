@@ -4,6 +4,7 @@
 # GitHub Repository: https://github.com/TheRemote/Legendary-Java-Minecraft-Geyser-Floodgate
 
 echo "Paper Minecraft Java Server Docker + Geyser/Floodgate script by James A. Chambers"
+echo "Updated to use aikars timing tricks"
 echo "Latest version always at https://github.com/TheRemote/Legendary-Java-Minecraft-Geyser-Floodgate"
 echo "Don't forget to set up port forwarding on your router!  The default port is 25565 and the Bedrock port is 19132"
 
@@ -208,10 +209,10 @@ if [ -e /minecraft/plugins/Geyser-Spigot/config.yml ]; then
 fi
 
 # Start server
-echo "Starting Minecraft server..."
+echo "Starting Minecraft server with aikars changes..."
 
 if [[ -z "$MaxMemory" ]] || [[ "$MaxMemory" -le 0 ]]; then
-    exec java -XX:+UnlockDiagnosticVMOptions -XX:-UseAESCTRIntrinsics -DPaper.IgnoreJavaVersion=true -Xms400M -jar /minecraft/paperclip.jar
+    exec java -Xms2000M -Xmx2500M -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -DPaper.IgnoreJavaVersion=true -jar /minecraft/paperclip.jar
 else
     exec java -XX:+UnlockDiagnosticVMOptions -XX:-UseAESCTRIntrinsics -DPaper.IgnoreJavaVersion=true -Xms400M -Xmx${MaxMemory}M -jar /minecraft/paperclip.jar
 fi
