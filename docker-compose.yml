@@ -30,8 +30,8 @@ services:
       TZ: "Australia/Melbourne" # Timezone
       BackupCount: 4 # Number of rolling backups to keep
       #MaxMemory: 2048 # Maximum memory usage for Java
-      #Version: 1.19.3 # Use custom version
-      NoBackup: "lawsonworld" # this is a huge world with chunky - so not backing up while testing
+      Version: 1.21.1 # Use custom version
+      NoBackup: "lawsonworld,radiantcity,flatworld" # this is a huge world with chunky - so not backing up while testing
       #NoPermCheck: "Y" # Optional flag to skip permissions check
       #NoViaVersion: "Y" # Optional flag to disable ViaVersion plugin
       #QuietCurl: "Y" # Optional flag to reduce curl log output by suppressing progress meter
