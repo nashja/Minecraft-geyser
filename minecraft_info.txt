@@ -14,3 +14,32 @@ docker attach legendary-java-minecraft-geyser-floodgate-minecraftbe-1
 
 sudo ls /var/lib/docker/volumes/bedrockDisk/_data
 docker volume inspect legendary-java-minecraft-geyser-floodgate_minecraft 
+
+
+-- updating the github repo to incorporate changes in the upstream fork
+
+https://www.earthdatascience.org/courses/intro-to-earth-data-science/git-github/github-collaboration/update-github-repositories-with-changes-by-others
+
+First Click on Pull Request,
+Then click on New Pull Request
+
+Chose base repository
+nash:Minecraft-geyser
+then click on compare across forks
+
+Make the main (the one I forked) be the HEAD fork
+
+-- Unable to easily merge this on github -
+
+Instead add an upstream to the local repository,
+and then pull in the changes from the upstream version to a local version - then merge, and push back to github ...
+
+git remote add upstream https://github.com/TheRemote/Legendary-Java-Minecraft-Geyser-Floodgate.git
+
+// pull from upstream repository
+
+git pull upstream main  
+
+-- do merge then push back to github ...
+
+git push origin main
