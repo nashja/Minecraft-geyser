@@ -1,0 +1,16 @@
+
+cd minecraft/docker/Legendary-Java-Minecraft-Geyser-Floodgate/
+
+emacs -nw docker-compose.yml 
+
+-- start up minecraft and detatch
+
+docker compose up -d
+
+-- attatch to the running minecraft server
+
+docker attach legendary-java-minecraft-geyser-floodgate-minecraftbe-1
+
+
+sudo ls /var/lib/docker/volumes/bedrockDisk/_data
+docker volume inspect legendary-java-minecraft-geyser-floodgate_minecraft 
