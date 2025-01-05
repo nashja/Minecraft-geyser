@@ -43,3 +43,6 @@ git pull upstream main
 -- do merge then push back to github ...
 
 git push origin main
+---
+Change to use the standard docker build - remove the build: section and restore the image: section
+
