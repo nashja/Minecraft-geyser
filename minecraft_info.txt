@@ -46,3 +46,16 @@ git push origin main
 ---
 Change to use the standard docker build - remove the build: section and restore the image: section
 
+---
+
+This proved to be not updated, and so moved to use the itzg minecraft docker server stuff.
+
+Much more up to date and robust.  It had pieces for floodgate-geyser - but not viaversion.
+
+Had to load the viaversion plugin by hand into the directory.
+
+Replaced docker compose with the one for this, and it works just fine on r - pi or elsewhere ...
+
+Worked from mac/java and ipad/bedrock
+
+
